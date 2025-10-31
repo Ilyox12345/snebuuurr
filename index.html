@@ -1,195 +1,132 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Snebur Family</title>
-    <style>
-      /* RESET */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snebur’Family — Serveur Discord Officiel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(180deg,#f9fbff 0%,#e6f0ff 100%);
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+      color:#0a0a0a;
+    }
 
-      body {
-        font-family: "Poppins", sans-serif;
-        background: white;
-        color: #0a0a0a;
-        overflow-x: hidden;
-      }
+    /* Effet lumineux bleu */
+    .bg-glow{
+      position:absolute;
+      width:700px;
+      height:700px;
+      background:radial-gradient(circle,rgba(0,102,255,0.3) 0%,transparent 70%);
+      filter:blur(120px);
+      animation:move 10s ease-in-out infinite alternate;
+      z-index:0;
+    }
+    @keyframes move{
+      from{transform:translate(-100px,-50px) scale(1);}
+      to{transform:translate(100px,50px) scale(1.1);}
+    }
 
-      /* Fond animé */
-      .bg {
-        position: absolute;
-        width: 120%;
-        height: 120%;
-        background: radial-gradient(
-          circle at 50% 50%,
-          rgba(0, 145, 255, 0.2),
-          transparent 70%
-        );
-        animation: pulse 8s infinite ease-in-out alternate;
-        z-index: 0;
-        top: -10%;
-        left: -10%;
-        filter: blur(80px);
-      }
+    .content{
+      position:relative;
+      z-index:2;
+      text-align:center;
+    }
 
-      @keyframes pulse {
-        0% {
-          transform: scale(1);
-          opacity: 0.6;
-        }
-        100% {
-          transform: scale(1.3);
-          opacity: 0.3;
-        }
-      }
+    .logo{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+    }
+    .logo svg{
+      width:48px;
+      height:48px;
+      fill:#0066ff;
+      filter:drop-shadow(0 0 10px rgba(0,102,255,0.3));
+    }
+    .logo h1{
+      font-size:3rem;
+      font-weight:800;
+      color:#0066ff;
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
 
-      header {
-        text-align: center;
-        padding: 100px 20px 60px;
-        position: relative;
-        z-index: 1;
-      }
+    .desc{
+      margin-top:15px;
+      font-size:1.1rem;
+      color:#333;
+      max-width:600px;
+      line-height:1.6;
+    }
 
-      h1 {
-        font-size: 4rem;
-        background: linear-gradient(90deg, #007bff, #00bcd4);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-weight: 900;
-      }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:linear-gradient(90deg,#0066ff,#00aaff);
+      color:#fff;
+      border:none;
+      border-radius:50px;
+      padding:14px 32px;
+      font-size:1rem;
+      font-weight:600;
+      margin-top:40px;
+      cursor:pointer;
+      text-decoration:none;
+      transition:all .3s ease;
+      box-shadow:0 10px 25px rgba(0,102,255,0.3);
+    }
+    .btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 15px 35px rgba(0,102,255,0.4);
+    }
+    .btn svg{
+      width:22px;
+      height:22px;
+      fill:#fff;
+    }
 
-      p {
-        color: #555;
-        font-size: 1.2rem;
-        margin-top: 15px;
-      }
+    footer{
+      position:absolute;
+      bottom:25px;
+      color:#777;
+      font-size:.9rem;
+    }
+  </style>
+</head>
 
-      .cards {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 30px;
-        padding: 0 20px;
-        position: relative;
-        z-index: 1;
-      }
+<body>
+  <!-- effet fond bleu -->
+  <div class="bg-glow"></div>
 
-      .card {
-        background: linear-gradient(180deg, #ffffff, #e8f2ff);
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15);
-        width: 300px;
-        padding: 30px;
-        text-align: center;
-        transition: transform 0.3s ease;
-      }
-
-      .card:hover {
-        transform: translateY(-10px);
-      }
-
-      .card-icon {
-        font-size: 40px;
-        color: #007bff;
-        margin-bottom: 15px;
-      }
-
-      .card h2 {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
-        color: #007bff;
-      }
-
-      .card p {
-        font-size: 1rem;
-        color: #555;
-      }
-
-      .join-btn {
-        display: inline-block;
-        margin-top: 60px;
-        padding: 15px 40px;
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: white;
-        background: linear-gradient(90deg, #007bff, #00bcd4);
-        border: none;
-        border-radius: 50px;
-        box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
-        text-decoration: none;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .join-btn:hover {
-        transform: scale(1.05);
-        box-shadow: 0 10px 30px rgba(0, 123, 255, 0.5);
-      }
-
-      footer {
-        text-align: center;
-        margin-top: 100px;
-        padding: 30px;
-        font-size: 0.9rem;
-        color: #777;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="bg"></div>
-
-    <header>
-      <h1>SNEBUR FAMILY</h1>
-      <p>Une communauté soudée, fun et accueillante.</p>
-    </header>
-
-    <section class="cards">
-      <div class="card">
-        <div class="card-icon">👥</div>
-        <h2>Une vraie famille</h2>
-        <p>
-          Snebur Family, c’est une communauté forte, pleine d’énergie et de
-          respect. Rejoins-nous pour partager et t’amuser !
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">✨</div>
-        <h2>Événements & Activités</h2>
-        <p>
-          Participe à nos événements, concours, jeux et soirées animées ! Il y a
-          toujours quelque chose de nouveau à vivre.
-        </p>
-      </div>
-    </section>
-
-    <div style="text-align: center; position: relative; z-index: 1">
-      <a
-        href="https://discord.gg/TONINVITE"
-        target="_blank"
-        class="join-btn"
-        >Rejoindre le serveur Discord</a
-      >
+  <div class="content">
+    <div class="logo">
+      <!-- Icône style "famille / groupe" -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+      <h1>Snebur’Family</h1>
     </div>
 
-    <footer>© 2025 Snebur Family — Tous droits réservés</footer>
+    <p class="desc">
+      Bienvenue sur le serveur Discord officiel <strong>Snebur’Family</strong>.<br>
+      Une communauté dynamique axée sur le <strong>trade sécurisé</strong> et l’univers <strong>Steal the Brainrot</strong>.
+    </p>
 
-    <script>
-      // Animation légère du titre
-      const title = document.querySelector("h1");
-      let hue = 0;
-      setInterval(() => {
-        hue = (hue + 1) % 360;
-        title.style.background = `linear-gradient(90deg, hsl(${hue}, 100%, 50%), hsl(${
-          (hue + 100) % 360
-        }, 100%, 60%))`;
-        title.style.webkitBackgroundClip = "text";
-      }, 50);
-    </script>
-  </body>
+    <a class="btn" href="https://discord.gg/TsRB5VSUNF" target="_blank">
+      <!-- Icône Discord -->
+      <svg xmlns="https://lemediacom.com/wp-content/uploads/2022/09/Discord-Logo.png" viewBox="0 0 245 240"><path d="M104.4 104.9c-5.7 0-10.2 5-10.2 11.1 0 6.1 4.6 11.1 10.2 11.1 5.7 0 10.3-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zm36.2 0c-5.7 0-10.2 5-10.2 11.1 0 6.1 4.6 11.1 10.2 11.1 5.7 0 10.3-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1z"/><path d="M189.5 20h-134C38.3 20 30 28.3 30 38.8V201l29.6-26.1 20.4 18.7 24.2 22 26.5 24.3 26.5-24.3 24.2-22 20.4-18.7L215 201V38.8C215 28.3 206.7 20 196.2 20h-6.7z"/></svg>
+      Rejoindre le serveur
+    </a>
+  </div>
+
+  <footer>© 2025 Snebur’Family — Sécurité assurée par Snebur’Bot™</footer>
+</body>
 </html>
-
