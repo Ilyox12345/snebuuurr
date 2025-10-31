@@ -3,130 +3,126 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Snebur’Family — Serveur Discord Officiel</title>
+  <title>Snebur'Family – Serveur Discord Officiel</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;}
+    *{margin:0;padding:0;box-sizing:border-box}
     body{
       font-family:'Poppins',sans-serif;
       background:linear-gradient(180deg,#f9fbff 0%,#e6f0ff 100%);
-      height:100vh;
+      color:#0a0a0a;
+      min-height:100vh;
       display:flex;
       flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      overflow:hidden;
-      color:#0a0a0a;
-    }
-
-    /* Effet lumineux bleu */
-    .bg-glow{
-      position:absolute;
-      width:700px;
-      height:700px;
-      background:radial-gradient(circle,rgba(0,102,255,0.3) 0%,transparent 70%);
-      filter:blur(120px);
-      animation:move 10s ease-in-out infinite alternate;
-      z-index:0;
-    }
-    @keyframes move{
-      from{transform:translate(-100px,-50px) scale(1);}
-      to{transform:translate(100px,50px) scale(1.1);}
-    }
-
-    .content{
-      position:relative;
-      z-index:2;
-      text-align:center;
-    }
-
-    .logo{
-      display:flex;
       align-items:center;
       justify-content:center;
-      gap:12px;
     }
-    .logo svg{
-      width:48px;
-      height:48px;
-      fill:#0066ff;
-      filter:drop-shadow(0 0 10px rgba(0,102,255,0.3));
-    }
-    .logo h1{
+
+    h1{
       font-size:3rem;
       font-weight:800;
-      color:#0066ff;
-      letter-spacing:2px;
-      text-transform:uppercase;
+      background:linear-gradient(to right,#007bff,#00b4ff);
+      -webkit-background-clip:text;
+      color:transparent;
+      text-align:center;
+      margin-bottom:10px;
     }
 
-    .desc{
-      margin-top:15px;
-      font-size:1.1rem;
-      color:#333;
+    p{
+      color:#444;
+      text-align:center;
       max-width:600px;
-      line-height:1.6;
+      font-size:1.1rem;
     }
 
     .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      background:linear-gradient(90deg,#0066ff,#00aaff);
-      color:#fff;
+      margin-top:25px;
+      background:linear-gradient(to right,#007bff,#00b4ff);
+      color:white;
+      padding:14px 35px;
       border:none;
-      border-radius:50px;
-      padding:14px 32px;
+      border-radius:30px;
       font-size:1rem;
-      font-weight:600;
-      margin-top:40px;
       cursor:pointer;
-      text-decoration:none;
-      transition:all .3s ease;
-      box-shadow:0 10px 25px rgba(0,102,255,0.3);
+      transition:transform .2s ease,box-shadow .2s ease;
     }
     .btn:hover{
-      transform:translateY(-3px);
-      box-shadow:0 15px 35px rgba(0,102,255,0.4);
-    }
-    .btn svg{
-      width:22px;
-      height:22px;
-      fill:#fff;
+      transform:scale(1.05);
+      box-shadow:0 0 15px rgba(0,123,255,.4);
     }
 
-    footer{
-      position:absolute;
-      bottom:25px;
-      color:#777;
-      font-size:.9rem;
+    section{
+      margin-top:50px;
+      width:90%;
+      max-width:700px;
+      background:white;
+      border-radius:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,.05);
+      padding:25px;
+      text-align:center;
+      animation:fadeIn 1s ease;
+    }
+
+    h2{
+      color:#007bff;
+      margin-bottom:15px;
+    }
+
+    ul{
+      list-style:none;
+      padding:0;
+    }
+
+    li{
+      margin:10px 0;
+      font-size:1.1rem;
+      color:#222;
+    }
+
+    @keyframes fadeIn {
+      from{opacity:0;transform:translateY(20px)}
+      to{opacity:1;transform:translateY(0)}
     }
   </style>
 </head>
-
 <body>
-  <!-- effet fond bleu -->
-  <div class="bg-glow"></div>
+  <h1>🤖 Snebur'Family</h1>
+  <p>Le serveur Discord officiel dédié au trade, à la sécurité et à la bonne ambiance.<br>
+  Protégé par <strong>Snebur’Bot</strong> 24h/24 🧠</p>
 
-  <div class="content">
-    <div class="logo">
-      <!-- Icône style "famille / groupe" -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-      <h1>Snebur’Family</h1>
-    </div>
+  <button class="btn" onclick="window.open('https://discord.gg/V2BuRHrsf3', '_blank')">
+    Rejoindre le serveur Discord
+  </button>
 
-    <p class="desc">
-      Bienvenue sur le serveur Discord officiel <strong>Snebur’Family</strong>.<br>
-      Une communauté dynamique axée sur le <strong>trade sécurisé</strong> et l’univers <strong>Steal the Brainrot</strong>.
-    </p>
+  <section>
+    <h2>🏆 Classement Mensuel</h2>
+    <ul id="leaderboard">
+      <li>Chargement du classement...</li>
+    </ul>
+  </section>
 
-    <a class="btn" href="https://discord.gg/TsRB5VSUNF" target="_blank">
-      <!-- Icône Discord -->
-      <svg xmlns="https://lemediacom.com/wp-content/uploads/2022/09/Discord-Logo.png" viewBox="0 0 245 240"><path d="M104.4 104.9c-5.7 0-10.2 5-10.2 11.1 0 6.1 4.6 11.1 10.2 11.1 5.7 0 10.3-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zm36.2 0c-5.7 0-10.2 5-10.2 11.1 0 6.1 4.6 11.1 10.2 11.1 5.7 0 10.3-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1z"/><path d="M189.5 20h-134C38.3 20 30 28.3 30 38.8V201l29.6-26.1 20.4 18.7 24.2 22 26.5 24.3 26.5-24.3 24.2-22 20.4-18.7L215 201V38.8C215 28.3 206.7 20 196.2 20h-6.7z"/></svg>
-      Rejoindre le serveur
-    </a>
-  </div>
+  <script>
+    // 🔹 Récupération du classement depuis ton API
+    fetch("https://api.sneburbot.dev/leaderboard")
+      .then(res => res.json())
+      .then(data => {
+        const leaderboard = document.getElementById("leaderboard");
+        leaderboard.innerHTML = "";
 
-  <footer>© 2025 Snebur’Family — Sécurité assurée par Snebur’Bot™</footer>
+        const sorted = Object.entries(data)
+          .sort((a,b)=>b[1]-a[1])
+          .slice(0,10);
+
+        sorted.forEach(([user,score],i)=>{
+          const li=document.createElement("li");
+          li.innerHTML = `<b style="color:#007bff;">#${i+1}</b> ${user} — ${score} pts`;
+          leaderboard.appendChild(li);
+        });
+      })
+      .catch(err=>{
+        document.getElementById("leaderboard").innerHTML = "<li>❌ Classement indisponible</li>";
+        console.error("Erreur API:",err);
+      });
+  </script>
 </body>
 </html>
