@@ -3,125 +3,171 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Snebur'Family – Serveur Discord Officiel</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Snebur’Family | Classement & Communauté</title>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{
-      font-family:'Poppins',sans-serif;
-      background:linear-gradient(180deg,#f9fbff 0%,#e6f0ff 100%);
-      color:#0a0a0a;
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(180deg, #0ea5e9, #1e3a8a);
+      color: #f8fafc;
+      margin: 0;
+      text-align: center;
+      overflow-x: hidden;
     }
 
-    h1{
-      font-size:3rem;
-      font-weight:800;
-      background:linear-gradient(to right,#007bff,#00b4ff);
-      -webkit-background-clip:text;
-      color:transparent;
-      text-align:center;
-      margin-bottom:10px;
+    header {
+      padding: 60px 20px 30px;
+      background: rgba(255,255,255,0.05);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     }
 
-    p{
-      color:#444;
-      text-align:center;
-      max-width:600px;
-      font-size:1.1rem;
+    h1 {
+      font-size: 3em;
+      font-weight: 800;
+      color: white;
+      text-shadow: 0 0 15px rgba(255,255,255,0.4);
+      margin-bottom: 10px;
     }
 
-    .btn{
-      margin-top:25px;
-      background:linear-gradient(to right,#007bff,#00b4ff);
-      color:white;
-      padding:14px 35px;
-      border:none;
-      border-radius:30px;
-      font-size:1rem;
-      cursor:pointer;
-      transition:transform .2s ease,box-shadow .2s ease;
-    }
-    .btn:hover{
-      transform:scale(1.05);
-      box-shadow:0 0 15px rgba(0,123,255,.4);
+    p.subtitle {
+      color: #cbd5e1;
+      font-size: 1.2em;
+      margin-top: 0;
     }
 
-    section{
-      margin-top:50px;
-      width:90%;
-      max-width:700px;
-      background:white;
-      border-radius:20px;
-      box-shadow:0 10px 30px rgba(0,0,0,.05);
-      padding:25px;
-      text-align:center;
-      animation:fadeIn 1s ease;
+    .discord-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #5865f2;
+      color: white;
+      border-radius: 12px;
+      padding: 14px 28px;
+      font-size: 1.1em;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 20px;
     }
 
-    h2{
-      color:#007bff;
-      margin-bottom:15px;
+    .discord-btn:hover {
+      background: #4752c4;
+      transform: scale(1.05);
     }
 
-    ul{
-      list-style:none;
-      padding:0;
+    main {
+      max-width: 800px;
+      margin: 60px auto;
+      background: rgba(255,255,255,0.08);
+      border-radius: 25px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.25);
     }
 
-    li{
-      margin:10px 0;
-      font-size:1.1rem;
-      color:#222;
+    h2 {
+      font-size: 2em;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #e0f2fe;
+    }
+
+    .entry {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      margin: 8px 0;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .entry:hover {
+      transform: scale(1.03);
+      background: rgba(255,255,255,0.2);
+    }
+
+    .rank {
+      font-size: 1.4em;
+      font-weight: bold;
+      width: 50px;
+      text-align: center;
+    }
+    .rank.gold { color: #facc15; }
+    .rank.silver { color: #e5e7eb; }
+    .rank.bronze { color: #f97316; }
+
+    .name {
+      flex: 1;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .points {
+      font-weight: 700;
+      color: #93c5fd;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      font-size: 0.9em;
+      color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.05);
     }
 
     @keyframes fadeIn {
-      from{opacity:0;transform:translateY(20px)}
-      to{opacity:1;transform:translateY(0)}
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
+
 <body>
-  <h1>🤖 Snebur'Family</h1>
-  <p>Le serveur Discord officiel dédié au trade, à la sécurité et à la bonne ambiance.<br>
-  Protégé par <strong>Snebur’Bot</strong> 24h/24 🧠</p>
+  <header>
+    <h1>Snebur’Family</h1>
+    <p class="subtitle">La communauté brainrot & trading la plus active 💎</p>
+    <a href="https://discord.gg/tonserveur" class="discord-btn" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="26" height="26" viewBox="0 0 24 24">
+        <path d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.078.037 13.798 13.798 0 0 0-.607 1.25 19.52 19.52 0 0 0-5.853 0 13.204 13.204 0 0 0-.619-1.25.077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515.07.07 0 0 0-.032.027C2.059 9.046 1.292 13.58 1.687 18.057a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.027 13.89 13.89 0 0 0 1.2-1.946.076.076 0 0 0-.041-.105 12.317 12.317 0 0 1-1.75-.83.078.078 0 0 1-.008-.13c.118-.09.236-.183.349-.278a.074.074 0 0 1 .077-.01c3.67 1.683 7.644 1.683 11.27 0a.074.074 0 0 1 .078.009c.114.096.231.189.35.279a.078.078 0 0 1-.006.13 11.832 11.832 0 0 1-1.751.829.076.076 0 0 0-.04.106c.36.684.769 1.34 1.2 1.945a.076.076 0 0 0 .084.028 19.876 19.876 0 0 0 6.001-3.03.076.076 0 0 0 .03-.055c.5-5.177-.838-9.67-3.548-13.662a.061.061 0 0 0-.03-.03zm-12.12 9.282c-1.182 0-2.157-1.085-2.157-2.419s.956-2.419 2.157-2.419c1.21 0 2.175 1.094 2.157 2.419.001 1.334-.947 2.419-2.157 2.419zm7.606 0c-1.182 0-2.157-1.085-2.157-2.419s.956-2.419 2.157-2.419c1.21 0 2.176 1.094 2.157 2.419 0 1.334-.947 2.419-2.157 2.419z"/>
+      </svg>
+      Rejoindre le serveur Discord
+    </a>
+  </header>
 
-  <button class="btn" onclick="window.open('https://discord.gg/V2BuRHrsf3', '_blank')">
-    Rejoindre le serveur Discord
-  </button>
+  <main>
+    <h2>🏆 Classement des membres les plus actifs</h2>
+    <div id="leaderboard">
+      <p>Chargement du classement...</p>
+    </div>
+  </main>
 
-  <section>
-    <h2>🏆 Classement Mensuel</h2>
-    <ul id="leaderboard">
-      <li>Chargement du classement...</li>
-    </ul>
-  </section>
+  <footer>
+    © 2025 Snebur Community — Propulsé par Snebur’BOT 🔹
+  </footer>
 
   <script>
-    // 🔹 Récupération du classement depuis ton API
-    fetch("https://api.sneburbot.dev/leaderboard")
+    const API_URL = "https://summer-cloud-db0a.ilyesquibroute93.workers.dev/leaderboard";
+
+    fetch(API_URL)
       .then(res => res.json())
       .then(data => {
-        const leaderboard = document.getElementById("leaderboard");
-        leaderboard.innerHTML = "";
-
-        const sorted = Object.entries(data)
-          .sort((a,b)=>b[1]-a[1])
-          .slice(0,10);
-
-        sorted.forEach(([user,score],i)=>{
-          const li=document.createElement("li");
-          li.innerHTML = `<b style="color:#007bff;">#${i+1}</b> ${user} — ${score} pts`;
-          leaderboard.appendChild(li);
-        });
+        const board = document.getElementById("leaderboard");
+        if (!data.leaderboard) {
+          board.innerHTML = "<p>Erreur: aucune donnée reçue</p>";
+          return;
+        }
+        board.innerHTML = data.leaderboard.map((u, i) => `
+          <div class="entry">
+            <span class="rank ${i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : ''}">#${i + 1}</span>
+            <span class="name">${u.username || u.user || "Inconnu"}</span>
+            <span class="points">${u.points || u.count || 0} pts</span>
+          </div>
+        `).join("");
       })
-      .catch(err=>{
-        document.getElementById("leaderboard").innerHTML = "<li>❌ Classement indisponible</li>";
-        console.error("Erreur API:",err);
+      .catch(err => {
+        document.getElementById("leaderboard").innerHTML = `<p>Erreur de connexion 😢<br>${err}</p>`;
       });
   </script>
 </body>
