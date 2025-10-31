@@ -3,172 +3,186 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Snebur’Family | Classement & Communauté</title>
+  <title>Snebur'Family — Classement</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
-
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
     body {
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(180deg, #0ea5e9, #1e3a8a);
-      color: #f8fafc;
-      margin: 0;
-      text-align: center;
+      background: linear-gradient(135deg, #0a0e27, #0f1b45);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
       overflow-x: hidden;
     }
-
     header {
-      padding: 60px 20px 30px;
-      background: rgba(255,255,255,0.05);
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      margin-top: 60px;
+      margin-bottom: 40px;
+      animation: fadeIn 1.2s ease;
     }
-
-    h1 {
-      font-size: 3em;
-      font-weight: 800;
-      color: white;
-      text-shadow: 0 0 15px rgba(255,255,255,0.4);
-      margin-bottom: 10px;
+    header h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, #00b4ff, #009dff, #00e0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-
-    p.subtitle {
-      color: #cbd5e1;
-      font-size: 1.2em;
-      margin-top: 0;
+    header p {
+      color: #c0c8ff;
+      margin-top: 8px;
+      font-size: 1.1rem;
+    }
+    .leaderboard {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 30px 40px;
+      width: 90%;
+      max-width: 600px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 25px rgba(0, 145, 255, 0.2);
+      animation: slideUp 1s ease;
+    }
+    .user {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 10px;
+      margin: 10px 0;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      transition: 0.3s;
+    }
+    .user:hover {
+      background: rgba(0, 145, 255, 0.3);
+      transform: translateY(-3px);
+    }
+    .rank {
+      font-weight: 700;
+      color: #00bfff;
+      font-size: 1.2rem;
+    }
+    .name {
+      flex: 1;
+      margin-left: 15px;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .points {
+      font-weight: 700;
+      color: #b5d8ff;
     }
 
     .discord-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #5865f2;
-      color: white;
-      border-radius: 12px;
-      padding: 14px 28px;
-      font-size: 1.1em;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
-      margin-top: 20px;
-    }
-
-    .discord-btn:hover {
-      background: #4752c4;
-      transform: scale(1.05);
-    }
-
-    main {
-      max-width: 800px;
-      margin: 60px auto;
-      background: rgba(255,255,255,0.08);
-      border-radius: 25px;
-      padding: 30px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.25);
-    }
-
-    h2 {
-      font-size: 2em;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #e0f2fe;
-    }
-
-    .entry {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 12px 20px;
-      margin: 8px 0;
-      background: rgba(255,255,255,0.1);
+      justify-content: center;
+      background: linear-gradient(90deg, #5865F2, #3B49D9);
+      border: none;
       border-radius: 12px;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .entry:hover {
-      transform: scale(1.03);
-      background: rgba(255,255,255,0.2);
-    }
-
-    .rank {
-      font-size: 1.4em;
-      font-weight: bold;
-      width: 50px;
-      text-align: center;
-    }
-    .rank.gold { color: #facc15; }
-    .rank.silver { color: #e5e7eb; }
-    .rank.bronze { color: #f97316; }
-
-    .name {
-      flex: 1;
-      text-align: left;
+      color: white;
+      padding: 14px 24px;
+      margin-top: 40px;
+      font-size: 1.1rem;
       font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(88, 101, 242, 0.4);
+      transition: 0.3s ease;
+    }
+    .discord-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(88, 101, 242, 0.6);
+    }
+    .discord-btn img {
+      width: 26px;
+      height: 26px;
+      margin-right: 10px;
     }
 
-    .points {
-      font-weight: 700;
-      color: #93c5fd;
+    .refresh {
+      margin-top: 25px;
+      padding: 10px 20px;
+      background: linear-gradient(90deg, #007aff, #00d4ff);
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .refresh:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
     }
 
     footer {
       margin-top: 60px;
-      padding: 20px;
-      font-size: 0.9em;
-      color: rgba(255,255,255,0.7);
-      background: rgba(255,255,255,0.05);
+      color: #8ca3ff;
+      font-size: 0.9rem;
+      text-align: center;
+      opacity: 0.7;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
   </style>
 </head>
-
 <body>
   <header>
-    <h1>Snebur’Family</h1>
-    <p class="subtitle">La communauté brainrot & trading la plus active 💎</p>
-    <a href="https://discord.gg/tonserveur" class="discord-btn" target="_blank">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="26" height="26" viewBox="0 0 24 24">
-        <path d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.078.037 13.798 13.798 0 0 0-.607 1.25 19.52 19.52 0 0 0-5.853 0 13.204 13.204 0 0 0-.619-1.25.077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515.07.07 0 0 0-.032.027C2.059 9.046 1.292 13.58 1.687 18.057a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.027 13.89 13.89 0 0 0 1.2-1.946.076.076 0 0 0-.041-.105 12.317 12.317 0 0 1-1.75-.83.078.078 0 0 1-.008-.13c.118-.09.236-.183.349-.278a.074.074 0 0 1 .077-.01c3.67 1.683 7.644 1.683 11.27 0a.074.074 0 0 1 .078.009c.114.096.231.189.35.279a.078.078 0 0 1-.006.13 11.832 11.832 0 0 1-1.751.829.076.076 0 0 0-.04.106c.36.684.769 1.34 1.2 1.945a.076.076 0 0 0 .084.028 19.876 19.876 0 0 0 6.001-3.03.076.076 0 0 0 .03-.055c.5-5.177-.838-9.67-3.548-13.662a.061.061 0 0 0-.03-.03zm-12.12 9.282c-1.182 0-2.157-1.085-2.157-2.419s.956-2.419 2.157-2.419c1.21 0 2.175 1.094 2.157 2.419.001 1.334-.947 2.419-2.157 2.419zm7.606 0c-1.182 0-2.157-1.085-2.157-2.419s.956-2.419 2.157-2.419c1.21 0 2.176 1.094 2.157 2.419 0 1.334-.947 2.419-2.157 2.419z"/>
-      </svg>
-      Rejoindre le serveur Discord
-    </a>
+    <h1>Snebur'Family 🧠</h1>
+    <p>Classement mensuel des membres les plus actifs du serveur Discord</p>
   </header>
 
-  <main>
-    <h2>🏆 Classement des membres les plus actifs</h2>
-    <div id="leaderboard">
-      <p>Chargement du classement...</p>
-    </div>
-  </main>
+  <section class="leaderboard" id="leaderboard">
+    <p style="text-align:center; color:#9fbaff;">Chargement du classement...</p>
+  </section>
+
+  <button class="refresh" onclick="fetchLeaderboard()">🔄 Actualiser le classement</button>
+
+  <a href="https://discord.gg/42TBbESKcV" target="_blank" class="discord-btn">
+    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord" />
+    Rejoindre le serveur Discord
+  </a>
 
   <footer>
-    © 2025 Snebur Community — Propulsé par Snebur’BOT 🔹
+    © 2025 Snebur'Family — Propulsé par Snebur'BOT 🚀
   </footer>
 
   <script>
     const API_URL = "https://summer-cloud-db0a.ilyesquibroute93.workers.dev/leaderboard";
 
-    fetch(API_URL)
-      .then(res => res.json())
-      .then(data => {
-        const board = document.getElementById("leaderboard");
-        if (!data.leaderboard) {
-          board.innerHTML = "<p>Erreur: aucune donnée reçue</p>";
+    async function fetchLeaderboard() {
+      const leaderboardDiv = document.getElementById("leaderboard");
+      leaderboardDiv.innerHTML = "<p style='text-align:center; color:#9fbaff;'>Chargement...</p>";
+
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        
+        if (!data.leaderboard || data.leaderboard.length === 0) {
+          leaderboardDiv.innerHTML = "<p style='text-align:center; color:#ff7070;'>Aucune donnée trouvée 😢</p>";
           return;
         }
-        board.innerHTML = data.leaderboard.map((u, i) => `
-          <div class="entry">
-            <span class="rank ${i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : ''}">#${i + 1}</span>
-            <span class="name">${u.username || u.user || "Inconnu"}</span>
-            <span class="points">${u.points || u.count || 0} pts</span>
+
+        leaderboardDiv.innerHTML = data.leaderboard.map((user, i) => `
+          <div class="user">
+            <div class="rank">#${i + 1}</div>
+            <div class="name">${user.user}</div>
+            <div class="points">${user.points} pts</div>
           </div>
         `).join("");
-      })
-      .catch(err => {
-        document.getElementById("leaderboard").innerHTML = `<p>Erreur de connexion 😢<br>${err}</p>`;
-      });
+      } catch (err) {
+        leaderboardDiv.innerHTML = `<p style='text-align:center; color:#ff7070;'>Erreur de connexion 😢<br>${err}</p>`;
+      }
+    }
+
+    // Charger automatiquement au démarrage
+    fetchLeaderboard();
   </script>
 </body>
 </html>
+
